@@ -277,13 +277,15 @@ function save_work()
 function load_work_list()
 {
 	console.log("Load Work!");
+	var postdat = { 'action' : 'list_works',
+			'access_user' : user.user,
+			'acces_key' : user.key };
+	console.log(postdat);
 	$.ajax({
 		url : '/ajaxy/mongo.php',
 		dataType:'json',
 		data: {
-			'action' : 'list_works',
-			'access_user' : user.user,
-			'acces_key' : user.key
+
 		},
 		success: function(obj){
 			if(!obj || !obj.status || obj.status != 'success') {
