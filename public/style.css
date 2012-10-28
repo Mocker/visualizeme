@@ -40,7 +40,7 @@ div.title {
 	color: white;
 	float: right;
 	right: 50px;
-	top: -3px;
+	top: 20px;
 }
 
 #access_box {
@@ -71,7 +71,7 @@ div.entrar {
 	text-align: center;
 	position: relative;
 	float: right;
-	top: -22px;
+	top: -3px;
 }
 div.entrar a {
 	color: black;
