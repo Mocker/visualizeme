@@ -3625,7 +3625,27 @@
 
 					if (e.type == "drop") file = e.dataTransfer.files[0]
 					else file = this.files[0];
+
 					if (file) {
+						 //csv handing
+  				  	if(file.type.indexOf("csv") != -1) {
+  				  		var selected = svgCanvas.getSelectedElems()[0];
+  				  		var data = d3.range(10).map(function(){return Math.random()*100})
+  				  		var height = selected.getBBox();
+  				  		height = height.height
+  				  		var graph = d3.select(selected)
+  				  			.selectAll("rect")
+  				  			.data(data)
+  				  			.transition()
+  				 					.duration(500)
+  				 					.attr("height", function(d, i){return d})
+  				 					.attr("y", function(d, i){return height/5-d})
+  				 			setTimeout(function(){svgCanvas.moveSelectedElements(0,0)}, 500)
+  				 					
+
+
+
+  				  	}
 					  if(file.type.indexOf("image") != -1) {
 					    //detected an image
 					  
@@ -3642,6 +3662,7 @@
   				  		};
   				  		reader.readAsText(file);
   				  	}
+
 					
 					    //image handling
 					    else {

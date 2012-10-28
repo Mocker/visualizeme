@@ -5,9 +5,10 @@ window.onload = function(){
 	
 	create_placeholders(graphs, graph_types)
 	graph_types.forEach(create_graph)
-	enable_menus()
+	enable_menus();
 	d3.selectAll(".module").attr("draggable", "true").on("dragstart", handleDragStart);
-}
+	place_colors();
+	}
 
 
 //FUNCTIONS
@@ -18,6 +19,22 @@ function enable_menus() {
 		dts.classed("open", false);
 		d3.select(this).classed("open", true);
 	})
+}
+
+function place_colors() {
+	var colors = d3.range(16).map(function(d, i){ return d3.hcl(i*20, 70, 40)});
+	d3.select("#accordion_color_schemes .wrapper")
+		.selectAll(".module")
+		.data(colors)
+		.enter()
+		.append("div")
+		.attr("class", "module color")
+		.attr("style", function(d){ return "background: " + d.toString() + ";"})
+		.on("click", function(d){
+			d3.select("#accent_rules").html(".accent {fill:" + d.toString() + "} .accent_stroke {stroke: " + d.toString() + "}")
+		})
+
+
 }
 
 function create_placeholders(graphs, graph_types) {
@@ -53,7 +70,7 @@ function create_graph(nodename) {
 		.attr("xmlns", "http://www.w3.org/2000/svg");
 
 	if (nodename == "Pie" || nodename == "Donut") {
-		var data = [20, 40, 30];
+		var data = [60, 2, 3, 0, 1, 1, 14, 17, 10];
 		var r = dims/2-10; 
 
 		var piechart = graph.append("g")

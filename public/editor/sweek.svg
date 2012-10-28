@@ -1,0 +1,31 @@
+<svg width="600" height="1697" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="1699" width="602" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_3" height="402.99998" width="655" y="16" x="-39.5" stroke-width="1.5" class="accent" />
+  <rect id="svg_1" height="402.99998" width="655" y="419.12405" x="-39.5" opacity="0.5" stroke-width="1.5" class="accent" />
+  <text font-weight="bold" transform="matrix(2.79048 0 0 2.79048 -408.754 -73.0258)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_4" y="64.48031" x="160.08512" stroke-width="0" fill="#ffffff">Título</text>
+  <text font-weight="bold" transform="matrix(1.30874 0 0 1.30874 -180.406 276.515)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_5" y="153.36111" x="166.60913" stroke-width="1.5" class="accent">Una gráfica</text>
+  <text font-weight="normal" transform="matrix(1.2073 0 0 1.2073 -163.596 292.614)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="15" id="svg_2" y="175.52749" x="168.90142" stroke-width="0" fill="#000000">Esto es una descripción</text>
+  <rect id="svg_6" height="306.99998" width="655" y="822.12406" x="-39.5" opacity="0.75" stroke-width="1.5" class="accent" />
+  <text style="cursor: move; " font-weight="bold" transform="matrix(1.30874 0 0 1.30874 -180.406 276.515)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_9" y="461.29087" x="166.60913" stroke-width="1.5" fill="#ffffff">Dashboard</text>
+  <rect rx="8" opacity="0.7" id="svg_13" height="162.36721" width="162.36721" y="908.28684" x="38.5" stroke-width="1.5" fill="#000000"/>
+  <text opacity="0.6" font-weight="bold" transform="matrix(1.01673 0 0 1.01673 -131.563 416.924)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_14" y="629.39148" x="217.03932" stroke-width="1.5" fill="#ffffff">Dato</text>
+  <text font-weight="bold" transform="matrix(8.00058 0 0 7.14697 -1654.73 -3182.59)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="15" id="svg_15" y="586.40248" x="216.85708" stroke-width="0" fill="#ffffff">0</text>
+  <rect rx="8" opacity="0.7" id="svg_18" height="162.36721" width="162.36721" y="908.28684" x="215.2811" stroke-width="1.5" fill="#000000"/>
+  <text opacity="0.7" font-weight="bold" transform="matrix(1.01673 0 0 1.01673 -131.563 416.924)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_19" y="629.39148" x="390.91221" stroke-width="1.5" fill="#ffffff">Dato</text>
+  <text font-weight="bold" transform="matrix(8.00058 0 0 7.14725 -1654.73 -3182.75)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="15" id="svg_20" y="586.40248" x="238.95311" stroke-width="0" fill="#ffffff">0</text>
+  <rect rx="8" opacity="0.7" id="svg_22" height="162.36721" width="162.36721" y="908.28684" x="390.20128" stroke-width="1.5" fill="#000000"/>
+  <text opacity="0.7" font-weight="bold" transform="matrix(1.01673 0 0 1.01673 -131.563 416.924)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_23" y="629.39148" x="562.95479" stroke-width="1.5" fill="#ffffff">Dato</text>
+  <text font-weight="bold" transform="matrix(8.00058 0 0 6.93391 -1654.73 -3060.8)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="15" id="svg_24" y="586.40248" x="260.81655" stroke-width="0" fill="#ffffff">0</text>
+  <text style="cursor: move; " font-weight="bold" transform="matrix(1.30874 0 0 1.30874 -180.406 276.515)" xml:space="preserve" text-anchor="left" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_28" y="696.75573" x="166.60913" stroke-width="1.5" class="accent">Un Mapa</text>
+ </g>
+</svg>
