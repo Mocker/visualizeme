@@ -11,7 +11,7 @@ $(document).ready(function(){
 		return false;
 	});
 
-	var usercookie = getCookie('userdat');
+	var usercookie = JSON.parse(getCookie('userdat'));
 	if(usercookie && usercookie.user )
 	{
 		console.log("User! "); console.log(usercookie);
@@ -35,7 +35,7 @@ var status = {
 
 function on_login(){
 	var html = "Logged in as "+user.user+" ";
-	html += "<span style='margin-left: 10px; font-size:0.8em;'><a href='javascript:sign_out();'>sign out</a></span>";
+	html += "<br><span style='margin-left: 10px; font-size:0.8em;'><a style='text-decoration: none;' href='javascript:sign_out();'>sign out</a></span>";
 	$('#access_logged').html(html);
 	$('#access').css('display','none');
 	$('#access_logged').css('display','block');
