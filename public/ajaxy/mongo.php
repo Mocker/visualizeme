@@ -28,7 +28,7 @@ switch( $_REQUEST['action'] )
 		$collection = $db->$col;
 		if(!$collection) dieJSON('Unable to select collection '.$col);
 		$collection->insert($obj);
-		dieJSON('success');
+		dieJSON($obj['_id']);
 		break;
 	case 'get':
 		if( !isset($_REQUEST['collection'])) dieJSON('Must specify name of collection');
