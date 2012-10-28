@@ -93,7 +93,7 @@ switch( $_REQUEST['action'] )
 		$col = $db->works;
 		$workc = $col->find(array('user_id'=>$usrid));
 		$works = array();
-		foreach ($cursor as $obj) {
+		foreach ($workc as $obj) {
 		    array_push($works, $obj);
 		}
 		dieJSON(array('status'=>'success','works'=>$works));
