@@ -11,7 +11,14 @@ $(document).ready(function(){
 		return false;
 	});
 
-	var usercookie = JSON.parse(getCookie('userdat'));
+	var usercookie = getCookie('userdat');
+	try {
+		usercookie = JSON.parse(usercookie);
+	}
+	catch (err) {
+		console.log("Couldn't read cookie"); console.log(usercookie);
+		usercookie = undefined;
+	}
 	if(usercookie && usercookie.user )
 	{
 		console.log("User! "); console.log(usercookie);
