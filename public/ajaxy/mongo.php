@@ -118,7 +118,7 @@ switch( $_REQUEST['action'] )
 		$usrid = $usrdat['_id'];
 
 		$col = $db->works;
-		$work = json_decode($_REQUEST['work'],true);
+		$work = json_decode(stripslashes($_REQUEST['work']),true);
 		if(!$work) dieJSON(array('status'=>'error','msg'=>'Invalid work data'));
 		$work['user_id'] = $usrid;
 		$col->insert($work);
