@@ -324,7 +324,8 @@ function load_work(work_id)
 			'work_id' : work_id
 		},
 		success : function(obj){
-			if(!obj || !obj.status || obj.status != 'success' || !obj.work){
+			console.log(obj);
+			if(!obj || !obj.status || obj.status != 'success' ){
 				alert("Error loading work");
 			}
 			work = obj.work;
