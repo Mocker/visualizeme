@@ -187,3 +187,10 @@ exdate.setDate(exdate.getDate() + exdays);
 var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
 document.cookie=c_name + "=" + c_value;
 }
+
+
+//save editor pages for user
+function save_work()
+{
+	console.log("Save Work");
+}

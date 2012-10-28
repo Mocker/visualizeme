@@ -2257,6 +2257,18 @@ div.title a {
   height: 230px;
   z-index: 100;
 }
+#user_save {
+  display: none;
+  position: absolute;
+  width: 80px;
+  
+  padding: 10px;
+  float: right;
+  right: 40px; 
+  top: 80px;
+  height: 50px;
+  z-index: 100;
+}
 #access_box h4 {
   margin: 0;
   color: white;
