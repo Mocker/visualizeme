@@ -48,10 +48,18 @@ function show_register()
 		    	},
 		    dataType: 'json',
 		    success: function(obj,status){
-		      alert("User account created");
-		      user = obj;
+		      if(!obj || !obj.status || !obj.user || obj.status != 'success')
+		      {
+		      	if(obj.msg){ alert(msg); }
+		      	else{ alert("Unable to register"); }
+		      	return;
+		      }
+		      user = obj.user;
 		      console.log(obj);
 		      status.is_registering = false;
+		      alert("Account registered");
+		      hide_access();
+		      $('#access').html('Logged in as '+user.user);
 		    },
 		    error: function(jq,err,msg){
 		      alert("Cannot register "+err+" "+msg);
@@ -92,10 +100,17 @@ function show_login()
 		    	},
 		    dataType: 'json',
 		    success: function(obj,status){
-		      alert("User logged in");
-		      user = obj;
+		      if(!obj || !obj.status || obj.status != 'success' || !obj.user)
+		      {
+		      	if(obj.msg){ alert(obj.msg); }
+		      	else { alert("Unable to login"); }
+		      	return;
+		      }
+		      user = obj.user;
 		      console.log(obj);
 		      status.is_logging = false;
+		      hide_access();
+		      $('#access').html("Logged in as "+user.user);
 		    },
 		    error: function(jq,err,msg){
 		      alert("Cannot Login "+err+" "+msg);
