@@ -2124,6 +2124,7 @@ input[readonly=readonly]:focus {
 }
 
 .accordion dt {
+  text-align: left;
   font: bold 18px/50px sans-serif;
   background-image: -ms-linear-gradient(top, #eee 0%, #ccc 100%);
   background-image: -moz-linear-gradient(top, #eee 0%,#ccc 100%);
@@ -2225,7 +2226,6 @@ input[readonly=readonly]:focus {
   cursor: -webkit-grab;
 }
 
-<<<<<<< HEAD
 .module.color {
   width: 50px;
   height: 50px;
@@ -2233,7 +2233,6 @@ input[readonly=readonly]:focus {
 
 .module.color:nth-of-type(2n+2) {
   margin-right: 5px;
-=======
 
 div.title a {
   color: #333333;
