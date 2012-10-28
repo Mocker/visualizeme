@@ -243,7 +243,7 @@ function save_work()
 		workdata = work;
 	}
 	//load actual infographic into work data
-
+	workdata.svg = svgCanvas.getSvgString();
 
 	//update local javascript obj
 	work = workdata;
@@ -262,19 +262,76 @@ function save_work()
 				else alert("Unable to save infographic");
 				return;
 			}
-			if(obj['work_id']){
-				work['_id'] = obj['work_id'];
+			if(obj['work_id'] && obj['work_id']['$id']){
+				work['_id'] = obj['work_id']['$id'];
 			}
 			alert("Infographic saved");
 		},
 		error : function(err){
 			alert("Unable to save work");
 		}
-	})
+	});
 
 }
 
-function load_work()
+function load_work_list()
 {
 	console.log("Load Work!");
+	$.ajax({
+		url : '/ajaxy/mongo.php',
+		dataType:'json',
+		data: {
+			'access_user' : user.user,
+			'acces_key' : user.key
+		},
+		success: function(obj){
+			if(!obj || !obj.status || obj.status != 'success') {
+				alert("Error fetching works");
+				return;
+			}
+			var works = obj;
+			$('#load_work ul').html('');
+			for ( var wk in works )
+			{
+				var li = document.createElement('li');
+				$(li).html(wk.name);
+				$(li).bind('click',function(evt){
+					load_work(wk['_id']['$id']);
+				})
+				$('#load_work ul').append(li);
+			}
+			$('#load_work').show();
+
+		},
+		error : function(err){
+			alert("Unable to fetch works");
+		}
+	});
+}
+
+function load_work(work_id)
+{
+	console.log("LOAD WORK "+work_id);
+	$('#load_work').hide();
+	$.ajax({
+		url : '/ajaxy/mongo.php',
+		dataType:'json',
+		data: {
+			'action' : 'get_work',
+			'work_id' : work_id
+		},
+		success : function(obj){
+			if(!obj || !obj.status || obj.status != 'success' || !obj.work){
+				alert("Error loading work");
+			}
+			work = obj.work;
+			if(obj.work.svg){
+				svgCanvas.importSvgString( obj.work.svg);
+			}
+			alert("Done loading infographic");
+		},
+		error : function(obj){
+			alert("Unable to load work");
+		}
+	});
 }
