@@ -81,6 +81,50 @@ switch( $_REQUEST['action'] )
 		dieJSON(array('status'=>'success','user'=>$usrdata));
 		break;
 
+	case 'list_works':
+		$col = $db->users; 
+		if( !isset($_REQUEST['access_key']) || !isset($_REQUEST['access_user'])) dieJSON('Must specify user key');
+		$usr = stripslashes($_REQUEST['access_user']);
+		$key = stripslashes($_REQUEST['access_key']);
+		$usrdat = $col->findOne( array('user'=>$usr,'key'=>$key));
+		if(!$usrdat){ dieJSON(array('status'=>'error','msg'=>'Unable to find user')); }
+		$usrid = $usrdat['_id'];
+
+		$col = $db->works;
+		$workc = $col->find(array('user_id'=>$usrid));
+		$works = array();
+		foreach ($cursor as $obj) {
+		    array_push($works, $obj);
+		}
+		dieJSON(array('status'=>'success','works'=>$works));
+		break;
+
+	case 'get_work':
+		$col = $db->works;
+		if(!isset($_REQUEST['work_id'])) dieJSON(array('status'=>'error','msg'=>'Missing Work ID'));
+		$workid = stripslashes($_REQUEST['work_id']);
+		$work = $col->findOne(array('_id'=>$workid));
+		dieJSON(array('status'=>'success','work'=>$work));
+		break;
+
+	case 'save_work':
+		$col = $db->users; 
+		if( !isset($REQUEST['work'])) dieJSON(array('status'=>'error','msg'=>'Missing work data to save'));
+		if( !isset($_REQUEST['access_key']) || !isset($_REQUEST['access_user'])) dieJSON('Must specify user key');
+		$usr = stripslashes($_REQUEST['access_user']);
+		$key = stripslashes($_REQUEST['access_key']);
+		$usrdat = $col->findOne( array('user'=>$usr,'key'=>$key));
+		if(!$usrdat){ dieJSON(array('status'=>'error','msg'=>'Unable to find user')); }
+		$usrid = $usrdat['_id'];
+
+		$col = $db->works;
+		$work = json_decode($_REQUEST['work'],true);
+		if(!$work) dieJSON(array('status'=>'error','msg'=>'Invalid work data'));
+		$work['user_id'] = $usrid;
+		$col->insert($work);
+		dieJSON(array('status'=>'success','msg'=>'Work saved'));
+		break;
+
 
 }
 dieJSON('Action not recognized');

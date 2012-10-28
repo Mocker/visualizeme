@@ -224,3 +224,8 @@ function save_work()
 {
 	console.log("Save Work");
 }
+
+function load_work()
+{
+	console.log("Load Work!");
+}
