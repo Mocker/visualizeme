@@ -54,7 +54,9 @@ function on_login(){
 
 function sign_out(){
 	console.log("Sign out");
-	setCookie('userdat','',0);
+	setCookie('userdat','',1);
+	var cookie = getCookie('userdat');
+	console.log(cookie);
 	user = undefined;
 	$('#access_logged').css('display','none');
 	$('#access').css('display','block');
