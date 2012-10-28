@@ -35,6 +35,8 @@ $(document).ready(function(){
 });
 
 var user = undefined;
+var work_id = undefined;
+var work = undefined;
 var status = {
 	is_registering: false,
 	is_logging: false
@@ -223,6 +225,53 @@ document.cookie=c_name + "=" + c_value;
 function save_work()
 {
 	console.log("Save Work");
+	var workname = (work==undefined) ? undefined : work.name;
+	var workid = (work==undefined) ? undefined : work._id;
+	var postdat = {
+		'action' : 'save_work',
+		'access_user': user.user,
+		'access_key' : user.key
+	};
+	if(work == undefined){
+		workname = prompt("Name your infographic..");
+		workdata = {
+			'name' : workname,
+			'data' : {}
+		};
+	} 
+	else {
+		workdata = work;
+	}
+	//load actual infographic into work data
+
+
+	//update local javascript obj
+	work = workdata;
+
+	//send save request
+	var workjson = JSON.stringify(workdata);
+	postdat['work'] = workjson;
+	$.ajax({
+		url: '/ajaxy/mongo.php',
+		dataType: 'json',
+		data: postdat,
+		success: function(obj){
+			console.log(obj);
+			if(!obj || !obj.status || obj.status != 'success'){
+				if(obj.msg) alert(obj.msg);
+				else alert("Unable to save infographic");
+				return;
+			}
+			if(obj['work_id']){
+				work['_id'] = obj['work_id'];
+			}
+			alert("Infographic saved");
+		},
+		error : function(err){
+			alert("Unable to save work");
+		}
+	})
+
 }
 
 function load_work()

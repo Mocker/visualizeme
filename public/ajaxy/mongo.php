@@ -122,7 +122,7 @@ switch( $_REQUEST['action'] )
 		if(!$work) dieJSON(array('status'=>'error','msg'=>'Invalid work data'));
 		$work['user_id'] = $usrid;
 		$col->insert($work);
-		dieJSON(array('status'=>'success','msg'=>'Work saved'));
+		dieJSON(array('status'=>'success','msg'=>'Work saved','work_id'=>$work['_id']));
 		break;
 
 
