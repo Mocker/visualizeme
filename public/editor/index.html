@@ -5,6 +5,7 @@
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="chrome=1"/>
 <link rel="icon" type="image/png" href="images/logo.png"/>
+<link rel="stylesheet" href="../style.css" type="text/css" />
 
 <!--{if svg_edit_release}>
   <link rel="stylesheet" href="svgedit.compiled.css" type="text/css"/>
@@ -20,8 +21,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes"/>
 
 
-  <script type="text/javascript" src="/assets/jquery.js"></script>
-
+  <!--<script type="text/javascript" src="/assets/jquery.js"></script>-->
+  <script type="text/javascript" src="../jquery-1.8.2.min.js"></script>
 
 <!--{if svg_edit_release}>
   <script type="text/javascript" src="svgedit.compiled.js"></script>
@@ -54,14 +55,18 @@
   <script type="text/javascript" src="requestanimationframe.js"></script>
   <script type="text/javascript" src="taphold.js"></script>
   <script type="text/javascript" src="charts.js"></script>
+
 <!--{endif}-->
 
+	<script type="text/javascript" src="../site.js"></script>
 
 <title>Visualizame</title>
 </head>
 <body>
+<div id='content_wrapper' style='min-height: 700px;'>
 <div id="svg_editor">
 <div class="accordion">
+	<div class='title' ><a href='/'>visualizame.net</a></div>
 	<dl>
 		<dt id="accordion_text_title">Gráficas</dt>
 		<dd class="clearfix" id="accordion_graphs">
@@ -789,6 +794,33 @@
   				</div>
   			</div>
 	</div>
+
+	
+	<div id='access'>
+ 	<a href='javascript:show_register();'>Registrate</a> o 
+ 	<a href='javascript:show_login();'><div class='entrar'>entra</div></a>
+ 	</div>
+ <div id='access_box'>
+ 	<form id='access_form' onSubmit='return false;'>
+ 		<input type='hidden' value='register' name='access_mode' id='access_mode'>
+ 		<h4></h4>
+ 		<label for='access_user'>Username</label>
+ 		<input type='text' name='access_user' id='access_user'>
+ 		<br>
+ 		<label for='access_password'>Password</label>
+ 		<input type='password' name='access_password' id='access_password'>
+ 		
+ 		<div id='access_box_email'>
+ 		<label for='access_email'>Email</label>
+ 		<input type='text' name='access_email' id='access_email'>
+ 		</div>
+ 		<br>
+ 		<input type='submit' id='access_submit' value='Register Account'>
+ 		<input type='button' value='Cancel' onClick='hide_access();'>
+ 	</form>
+ </div>
+
+
 </div> <!-- tools_left -->
 
 <div id="tools_bottom" class="tools_panel">
@@ -878,6 +910,10 @@
 	<li><a href="#move_down">Send Backward<span class="shortcut">⌘↓</span></a></li>
   <li><a href="#move_back">Send to Back<span class="shortcut">⌘⇧↓</span></a></li>
 </ul>
+
+</div>
+
+
 
 </body>
 </html>
