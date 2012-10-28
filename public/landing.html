@@ -3,6 +3,8 @@
 <title>Visualizame.net</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script type='text/javascript' src='jquery-1.8.2.min.js'></script>
+<script type='text/javascript' src='site.js'></script>
 </head>
 <body>
 <div id='wrapper'>
@@ -10,8 +12,27 @@
 <div id='header'>
  <div class='title'>visualizame.net</div>
  <div id='access'>
- 	<a href=''>Registrate</a> o 
- 	<a href=''><div class='entrar'>entra</div></a>
+ 	<a href='javascript::show_register();'>Registrate</a> o 
+ 	<a href='javascript::show_login();'><div class='entrar'>entra</div></a>
+ </div>
+ <div id='access_box'>
+ 	<form id='access_form' onSubmit='return false;'>
+ 		<input type='hidden' action='register' id='access_mode'>
+ 		<h4>Enter desired username</h4>
+ 		<label for='access_user'>Username</label>
+ 		<input type='text' name='access_user' id='access_user'>
+ 		<br>
+ 		<label for='access_user'>Password</label>
+ 		<input type='text' name='access_user' id='access_user'>
+ 		
+ 		<div id='access_box_email'>
+ 		<label for='access_user'>Username</label>
+ 		<input type='text' name='access_user' id='access_user'>
+ 		</div>
+ 		<br>
+ 		<input type='submit' id='access_submit' value='Register Account'>
+ 		<input type='button' value='Cancel' onClick='hide_access();'>
+ 	</form>
  </div>
 </div>
 <div id='content_wrapper'>
