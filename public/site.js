@@ -12,12 +12,13 @@ $(document).ready(function(){
 	});
 
 	var usercookie = getCookie('userdat');
+	var userdat = false;
 	try {
-		usercookie = JSON.parse(usercookie);
+		userdat = JSON.parse(usercookie);
 	}
 	catch (err) {
 		console.log("Couldn't read cookie"); console.log(usercookie);
-		userdat = undefined;
+		userdat = false;
 	}
 	if(userdat && userdat.user )
 	{
