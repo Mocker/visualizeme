@@ -17,12 +17,11 @@ $(document).ready(function(){
 	}
 	catch (err) {
 		console.log("Couldn't read cookie"); console.log(usercookie);
-		usercookie = undefined;
+		userdat = undefined;
 	}
-	if(usercookie && usercookie.user )
+	if(userdat && userdat.user )
 	{
 		console.log("User! "); console.log(usercookie);
-		userdat = JSON.parse(usercookie);
 		console.log(userdat);
 		user = userdat;
 		on_login();
