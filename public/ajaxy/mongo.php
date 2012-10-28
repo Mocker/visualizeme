@@ -109,7 +109,7 @@ switch( $_REQUEST['action'] )
 
 	case 'save_work':
 		$col = $db->users; 
-		if( !isset($REQUEST['work'])) dieJSON(array('status'=>'error','msg'=>'Missing work data to save'));
+		if( !isset($_REQUEST['work'])) dieJSON(array('status'=>'error','msg'=>'Missing work data to save'));
 		if( !isset($_REQUEST['access_key']) || !isset($_REQUEST['access_user'])) dieJSON('Must specify user key');
 		$usr = stripslashes($_REQUEST['access_user']);
 		$key = stripslashes($_REQUEST['access_key']);
