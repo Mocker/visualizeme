@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+<!-- removed for now, causes problems in Firefox: manifest="svg-editor.manifest" -->
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1"/>
+<link rel="icon" type="image/png" href="images/logo.png"/>
+
+<!--{if svg_edit_release}>
+  <link rel="stylesheet" href="svgedit.compiled.css" type="text/css"/>
+  <link rel="stylesheet" href="fonts.css" type="text/css"/>
+<!{else}-->
+  <link rel="stylesheet" href="jgraduate/css/jPicker.css" type="text/css"/>
+  <link rel="stylesheet" href="jgraduate/css/jgraduate.css" type="text/css"/>
+  <link rel="stylesheet" href="svg-editor.css" type="text/css"/>
+  <link rel="stylesheet" href="spinbtn/JQuerySpinBtn.css" type="text/css"/>
+  <link rel="stylesheet" href="fonts.css" type="text/css"/>
+<!--{endif}-->
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+
+
+  <script type="text/javascript" src="/assets/jquery.js"></script>
+
+
+<!--{if svg_edit_release}>
+  <script type="text/javascript" src="svgedit.compiled.js"></script>
+<!{else}-->
+  <script type="text/javascript" src="touch.js"></script>
+   <script type="text/javascript" src="d3.js"></script>
+  <script type="text/javascript" src="js-hotkeys/jquery.hotkeys.min.js"></script>
+  <script type="text/javascript" src="jquerybbq/jquery.bbq.min.js"></script>
+  <script type="text/javascript" src="svgicons/jquery.svgicons.js"></script>
+  <script type="text/javascript" src="jgraduate/jquery.jgraduate.js"></script>
+  <script type="text/javascript" src="contextmenu/jquery.contextMenu.js"></script>
+  <script type="text/javascript" src="browser.js"></script>
+  <script type="text/javascript" src="svgtransformlist.js"></script>
+  <script type="text/javascript" src="math.js"></script>
+  <script type="text/javascript" src="units.js"></script>
+  <script type="text/javascript" src="svgutils.js"></script>
+  <script type="text/javascript" src="sanitize.js"></script>
+  <script type="text/javascript" src="history.js"></script>
+  <script type="text/javascript" src="select.js"></script>
+  <script type="text/javascript" src="hover.js"></script>
+  <script type="text/javascript" src="draw.js"></script>
+  <script type="text/javascript" src="path.js"></script>
+  <script type="text/javascript" src="svgcanvas.js"></script>
+  <script type="text/javascript" src="svg-editor.js"></script>
+  <script type="text/javascript" src="jquery-draginput.js"></script>
+  <script type="text/javascript" src="contextmenu.js"></script>
+  <script type="text/javascript" src="jquery-ui/jquery-ui-1.8.17.custom.min.js"></script>
+  <script type="text/javascript" src="jgraduate/jpicker.min.js"></script>
+  <script type="text/javascript" src="mousewheel.js"></script>
+  <script type="text/javascript" src="requestanimationframe.js"></script>
+  <script type="text/javascript" src="taphold.js"></script>
+  <script type="text/javascript" src="charts.js"></script>
+<!--{endif}-->
+
+
+<title>Visualizame</title>
+</head>
+<body>
+<div id="svg_editor">
+<div class="accordion">
+	<dl>
+		<dt id="accordion_text_title">Gráficas</dt>
+		<dd class="clearfix" id="accordion_graphs">
+			<div class="wrapper"></div>
+		</dd>
+		<dt id="accordion_text_title">Texto</dt>
+		<dd class="clearfix" id="accordion_text">
+			<div class="wrapper">
+				<div class="module full">
+					<svg xmlns="http://www.w3.org/2000/svg" width="280" height="117">
+						<text font-family="sans-serif" font-size="36" x="20" y="60" text-anchor="start" font-weight="bold">Título</text>
+					</svg>
+				</div>
+				<div class="module full">
+					<svg xmlns="http://www.w3.org/2000/svg" width="280" height="117">
+						<text font-family="sans-serif" font-size="24" x="20" y="60" text-anchor="start" font-weight="bold">Subtítulo</text>
+					</svg>
+				</div>
+				<div class="module full">
+					<svg xmlns="http://www.w3.org/2000/svg" width="280" height="117">
+						<text font-family="sans-serif" font-size="18" x="20" y="60" text-anchor="start" font-weight="normal">Párrafo</text>
+					</svg>
+				</div>
+			</div>
+		</dd>
+		<dt  class="open" id="accordion_image_library_title">Librería de Imágenes</dt>
+		<dd class="clearfix" id="accordion_image_library">
+			<div class="wrapper" id="newshapelib">
+			<div class="module">
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="45" height="100" viewBox="0 0 45 100" enable-background="new 0 0 45.807 100" xml:space="preserve">
+<path d="M22.904,16.235c-4.484,0-8.118-3.618-8.118-8.11C14.786,3.649,18.419,0,22.904,0c4.492,0,8.125,3.649,8.125,8.125
+	C31.029,12.617,27.396,16.235,22.904,16.235z"/>
+<path d="M30.784,34.739L42.91,57.29l2.897-1.962L33.298,19.485h-9.98h-0.414H22.49h-9.98L0,55.327l2.897,1.962l12.126-22.551
+	c0,0,1.533,0,1.533,3.909L3.403,70.167h12.51L19.96,100h2.529h0.414h0.414h2.529l4.047-29.834h12.509L29.25,38.648
+	C29.25,34.739,30.784,34.739,30.784,34.739z"/>
+</svg>
+</div>
+<div class="module">
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="34.616px" height="100px" viewBox="0 0 34.616 100" enable-background="new 0 0 34.616 100" xml:space="preserve">
+<path d="M17.321,0c-4.701,0-8.509,3.802-8.509,8.502c0,4.688,3.809,8.49,8.509,8.49c4.681,0,8.483-3.802,8.483-8.49  C25.805,3.802,22.002,0,17.321,0z"/>
+<path d="M31.364,25.82c-2.083-4.258-5.312-6.849-13.242-6.849h-0.814h-0.813c-7.93,0-11.159,2.591-13.242,6.849  C2.21,27.949,0.017,54.583,0.017,54.583c-0.169,1.576,0.97,2.982,2.539,3.139c0.104,0.013,0.202,0.013,0.306,0.013  c1.445,0,2.688-1.087,2.832-2.552l2.239-23.145l0.554,17.969L6.853,96.438c-0.117,1.83,1.263,3.432,3.092,3.549  C10.042,100,10.114,100,10.179,100c1.745,0,3.216-1.341,3.347-3.099l3.782-38.242l3.783,38.242c0.13,1.758,1.602,3.099,3.347,3.099  c0.064,0,0.137,0,0.234-0.013c1.829-0.117,3.209-1.719,3.092-3.549L26.13,50.006l0.554-17.969l2.239,23.145  c0.144,1.465,1.387,2.552,2.832,2.552c0.104,0,0.202,0,0.306-0.013c1.569-0.156,2.709-1.562,2.539-3.139  C34.6,54.583,32.406,27.949,31.364,25.82z"/>
+</svg>
+</div>
+<div class="module">
+	<svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="492" height="605" viewBox="1300 100 100 3500" enable-background="new 0 0 492 605" xml:space="preserve">
+<g>
+	<g>
+		<path d="M244.061,343.371v1.467h-4.144v10.833h-1.687v-10.833h-4.143v-1.467H244.061z"/>
+		<path d="M245.036,343.371h2.383l3.541,10.4l3.511-10.4h2.371v12.301h-1.591v-7.259c0-0.25,0.005-0.667,0.014-1.247
+			c0.013-0.581,0.017-1.203,0.017-1.867l-3.51,10.373h-1.653l-3.543-10.373v0.375c0,0.302,0.008,0.762,0.026,1.378
+			c0.017,0.617,0.026,1.07,0.026,1.36v7.259h-1.591V343.371z"/>
+	</g>
+	<path fill="#FFFFFF" d="M315.931,132.614c0.013,0.007,0.024,0.015,0.03,0.02c0.035,0.023,0.071,0.044,0.103,0.065L315.931,132.614z
+		 M468.032,496.1c5.864-8.23,9.32-19.112,9.258-31.175c-0.023-12.196-3.172-25.652-9.741-41.143
+		c-3.224-7.574-11.412-11.806-19.454-10.043c-3.688,0.808-6.88,2.781-9.229,5.47c-5.394-21.116-16.227-34.716-19.946-39.089
+		l-92.547-126.037v-30.048c0.944-1.178,1.893-2.459,2.829-3.851c6.225-9.152,11.249-22.709,11.264-40.042c0-0.135,0-0.234,0-0.299
+		v-0.471c0.077-20.755-10.58-37.711-24.504-46.738c-8.253-5.469-16.928-8.537-25.166-10.082c1.14-3.409,1.757-7.059,1.757-10.854
+		c-0.004-7.869-2.655-15.114-7.114-20.897c12.386-8.989,20.443-23.583,20.447-40.067c-0.008-27.332-22.14-49.465-49.475-49.477
+		c-27.335,0.012-49.467,22.145-49.479,49.477c0,0.27,0.005,0.542,0.007,0.812c-20.969,1.593-37.467,19.092-37.473,40.469
+		c0.005,14.237,7.331,26.754,18.415,33.998c-4.357,1.67-8.723,3.858-12.971,6.684c-13.806,8.937-24.486,25.895-24.415,46.66
+		c0.003,0.001,0,0.131,0.003,0.375c0,0.065-0.003,0.134-0.003,0.211c-0.018,17.429,5.016,31.06,11.302,40.288
+		c0.922,1.369,1.86,2.633,2.798,3.802v30.055L72.054,380.129c-5.034,5.903-22.836,28.412-23.082,63.405
+		c0,2.619,0.104,5.286,0.327,8.004c-2.337,1.204-9.102,4.896-16.429,11.514c-4.265,3.884-8.763,8.818-12.424,15.212
+		c-3.642,6.346-6.378,14.377-6.367,23.37c0,3.103,0.32,6.332,1.013,9.593c3.303,15.406,13.779,29.823,31.874,44.013
+		c5.511,4.315,12.923,4.794,18.836,1.533c8.315,10.578,19.033,18.332,30.154,23.993c14.587,7.415,30.205,11.617,44.689,14.296
+		c14.862,2.727,28.607,3.78,38.566,4.401c4.952,0.305,9.008,0.503,11.386,0.693c0.181,0.014,0.356,0.028,0.516,0.04
+		c1.741,0.59,3.591,0.903,5.469,0.903c1.434,0,2.89-0.18,4.332-0.559c1.79-0.463,3.449-1.194,4.935-2.15
+		c2.277,1.083,4.805,1.668,7.42,1.663c16.616-0.041,32.994-0.836,46.878-1.144c1.455-0.035,2.879-0.255,4.249-0.64
+		c1.391,0.318,2.832,0.467,4.302,0.424c44.224-1.32,80.586-4.767,112.397-15.243c31.785-10.396,58.613-28.59,80.707-56.676
+		c4.564-5.762,4.938-13.838,0.928-19.998c-0.588-0.903-1.249-1.735-1.976-2.49C463.365,501.936,465.833,499.223,468.032,496.1z"/>
+	<g>
+		<path d="M271.76,161.231c0,0,11.908,4.525,11.669,11.194c-0.049,1.369-0.38,2.457-0.856,3.338
+			c-0.488-5.24-9.015-5.482-9.015-5.482h-57.632c0,0-8.527,0.243-9.015,5.482c-0.481-0.881-0.809-1.969-0.856-3.338
+			c-0.239-6.669,11.669-11.194,11.669-11.194s-20.958,1.193-21.435,12.384c-0.476,11.193,7.622,12.861,20.004,12.861h21.649
+			c7.55,0,13.597,0,13.597,0h21.649c12.381,0,20.48-1.667,20.003-12.861C292.717,162.424,271.76,161.231,271.76,161.231z"/>
+		<path d="M405.481,390.799l-96.258-131.095v-42.366c1.688-1.537,3.734-3.732,5.748-6.724c4.354-6.43,8.372-16.556,8.346-30.806
+			c0.144-15.179-7.285-26.609-16.805-32.864c-9.495-6.367-20.538-8.54-29.868-8.574h-37.08l0,0h-25.243
+			c-9.333,0.034-20.375,2.208-29.875,8.574c-9.515,6.253-16.95,17.682-16.801,32.862c-0.026,14.25,3.994,24.382,8.342,30.808
+			c2.015,2.992,4.061,5.185,5.749,6.719v42.371L85.483,390.803c-2.877,3.261-19.253,22.719-19.368,52.802
+			c0,5.173,0.498,10.643,1.663,16.351c3.233,16.705,13.456,27.784,25.411,33.394c11.937,5.725,25.302,6.971,37.303,6.998h110.903
+			v0.003l119.074-0.003c11.998-0.027,25.365-1.273,37.302-7c11.956-5.607,22.178-16.687,25.415-33.398
+			c1.149-5.701,1.654-11.169,1.653-16.344C424.727,413.514,408.349,394.056,405.481,390.799z M355.763,483.386
+			c-3.521,0.163-9.354,0.295-19.035,0.295c-26.195,0-46.199-4.287-90.494-4.287s-64.298,4.287-90.495,4.287
+			c-13.947,0-19.926-0.269-22.471-0.521c-0.623-0.135-1.233-0.271-1.83-0.413l0.01-0.018c0,0-0.007,0.009-0.018,0.014
+			c-48.63-11.644-32.782-62.958-27.871-76.03c15.14-31.941,49.969-82.227,72.561-113.598c0,0,13.874-18.886,17.416-27.731
+			c3.547-8.849,3.442-46.621,3.442-46.621c5.805,0.465,7.185,3.755,7.185,3.755c0-9.312-5.239-12.279-7.185-13.062v-0.246
+			l-3.821-2.195l-0.015-0.017c-1.229-1.065-10.125-7.253-10.255-27.193c0.145-10.537,4.145-16.013,10.106-20.239
+			c5.979-4.113,14.467-5.991,21.328-5.955h25.243l0,0h37.08c6.859-0.036,15.343,1.842,21.326,5.952
+			c5.957,4.225,9.961,9.702,10.105,20.245c-0.025,11.469-3.055,18.246-5.752,22.3c-1.354,2.018-2.664,3.348-3.548,4.126
+			c-0.44,0.384-0.779,0.635-0.958,0.763l-0.011,0.019l-3.82,2.197c0,0-7.9,1.874-7.9,13.305c0,0,1.499-3.549,7.9-3.788
+			c0,0,0,39.625,3.703,47.286c3.702,7.666,6.187,12.16,6.187,12.16c19.969,27.501,64.197,87.917,82.083,125.646
+			C390.969,417.155,407.979,473.142,355.763,483.386z"/>
+	</g>
+	<path d="M288.738,50.734c0,17.856-14.473,32.331-32.333,32.331c-17.855,0-32.329-14.475-32.329-32.331
+		c0-17.856,14.474-32.331,32.329-32.331C274.265,18.403,288.738,32.878,288.738,50.734z"/>
+	<path fill="#FFFFFF" d="M276.091,47.56c0,11.924-9.668,21.591-21.589,21.591c-11.924,0-21.593-9.667-21.593-21.591
+		c0-11.925,9.669-21.591,21.593-21.591C266.423,25.969,276.091,35.634,276.091,47.56z"/>
+	<path d="M233.489,92.012c0,12.946-10.493,23.439-23.443,23.439c-12.945,0-23.437-10.494-23.437-23.439
+		c0-12.944,10.492-23.441,23.437-23.441C222.996,68.571,233.489,79.068,233.489,92.012z"/>
+	<path fill="#FFFFFF" d="M221.779,89.711c0,7.592-6.156,13.748-13.745,13.748c-7.596,0-13.753-6.156-13.753-13.748
+		c0-7.595,6.157-13.749,13.753-13.749C215.624,75.962,221.779,82.117,221.779,89.711z"/>
+	<path d="M275.403,111.698c0,9.442-7.652,17.091-17.091,17.091s-17.091-7.649-17.091-17.091c0-9.436,7.652-17.09,17.091-17.09
+		S275.403,102.262,275.403,111.698z"/>
+	<circle fill="#FFFFFF" cx="257.044" cy="108.523" r="9.825"/>
+	<path fill="#FFFFFF" d="M266.884,29.937c0,0,13.974,9.049,13.974,23.974c0,10.955-13.812,20.798-25.719,20.798
+		c0,0,12.543-5.398,12.222-9.367"/>
+	<path d="M254.287,35.166c-1.233,3.237-4.953,4.828-8.314,3.552c-3.359-1.277-5.091-4.939-3.857-8.175
+		c1.227-3.238,4.952-4.828,8.311-3.552C253.786,28.267,255.513,31.927,254.287,35.166z"/>
+	<path d="M248.095,40.288c-0.701,1.842-2.82,2.748-4.733,2.02c-1.916-0.724-2.902-2.811-2.199-4.655
+		c0.698-1.844,2.819-2.75,4.737-2.023C247.812,36.357,248.797,38.441,248.095,40.288z"/>
+	<path fill="#FFFFFF" d="M223.067,91.694c0,0,1.906,0.637-1.744,1.272c-3.655,0.633-6.674,2.38-7.781,4.443
+		c-1.114,2.065,1.429,3.971-4.287,3.019c-5.716-0.953-8.413-1.906-8.413-1.906s5.871,6.827,14.605,4.448
+		c8.733-2.383,12.382-8.417,12.223-9.687C227.512,92.014,223.067,91.694,223.067,91.694z"/>
+	<path fill="#FFFFFF" d="M227.353,99.397c0,0-2.065,10.794-16.83,12.384c0,0,3.494-0.162,5.56-3.656
+		c2.061-3.489,3.965-6.189,6.824-6.347C225.764,101.618,227.037,100.508,227.353,99.397z"/>
+	<path d="M204.889,80.423c0,2.456-1.919,4.446-4.286,4.446c-2.366,0-4.292-1.99-4.292-4.446c0-2.455,1.926-4.446,4.292-4.446
+		C202.97,75.977,204.889,77.968,204.889,80.423z"/>
+	<path d="M256.57,102.808c0,2.457-1.923,4.448-4.29,4.448c-2.366,0-4.287-1.991-4.287-4.448c0-2.454,1.921-4.445,4.287-4.445
+		C254.647,98.362,256.57,100.354,256.57,102.808z"/>
+	<path fill="#FFFFFF" d="M276.649,68.832c0,0-9.288,9.049-22.864,10.479C253.786,79.311,270.22,81.216,276.649,68.832z"/>
+	<path fill="#FFFFFF" d="M270.312,119.638c0,0-5.94,5.791-14.629,6.706C255.683,126.344,266.197,127.563,270.312,119.638z"/>
+	<path fill="#292425" d="M320.513,360.804c0-2.779-2.255-5.034-5.035-5.034c-2.784,0-5.035,2.254-5.035,5.034
+		c0,2.781,2.251,5.032,5.035,5.032C318.258,365.836,320.513,363.585,320.513,360.804"/>
+	<path fill="none" d="M320.513,360.804c0-2.779-2.255-5.034-5.035-5.034c-2.784,0-5.035,2.254-5.035,5.034
+		c0,2.781,2.251,5.032,5.035,5.032C318.258,365.836,320.513,363.585,320.513,360.804z"/>
+	<path fill="#292425" d="M285.971,360.804c0-2.779-2.251-5.034-5.035-5.034c-2.778,0-5.034,2.254-5.034,5.034
+		c0,2.781,2.256,5.032,5.034,5.032C283.72,365.836,285.971,363.585,285.971,360.804"/>
+	<path fill="none" d="M285.115,360.804c0-2.779-2.251-5.034-5.036-5.034c-2.779,0-5.03,2.254-5.03,5.034
+		c0,2.781,2.251,5.032,5.03,5.032C282.864,365.836,285.115,363.585,285.115,360.804z"/>
+	<path fill="#292425" d="M233.847,352.422c0,3.314,2.686,6.001,5.998,6.001c3.314,0,5.999-2.687,5.999-6.001
+		c0-3.309-2.685-5.999-5.999-5.999C236.533,346.423,233.847,349.113,233.847,352.422"/>
+	<path fill="none" d="M233.847,352.422c0,3.314,2.686,6.001,5.998,6.001c3.314,0,5.999-2.687,5.999-6.001
+		c0-3.309-2.685-5.999-5.999-5.999C236.533,346.423,233.847,349.113,233.847,352.422z"/>
+	<path fill="#292425" d="M191.665,352.422c0,3.314,2.682,6.001,5.999,6.001c3.312,0,5.994-2.687,5.994-6.001
+		c0-3.309-2.681-5.999-5.994-5.999C194.347,346.423,191.665,349.113,191.665,352.422"/>
+	<path fill="none" d="M191.665,352.422c0,3.314,2.682,6.001,5.999,6.001c3.312,0,5.994-2.687,5.994-6.001
+		c0-3.309-2.681-5.999-5.994-5.999C194.347,346.423,191.665,349.113,191.665,352.422z"/>
+	<rect x="222.304" y="454.827" fill="#999999" width="6.427" height="3.817"/>
+	<rect x="273.722" y="454.827" fill="#999999" width="6.429" height="3.817"/>
+	<polygon fill="#999999" points="222.304,469.528 228.73,469.528 228.73,469.462 228.73,465.071 222.304,465.071 	"/>
+	<polygon fill="#999999" points="258.908,468.457 262.122,468.457 288.523,468.457 288.523,465.071 258.908,465.071 	"/>
+	<path fill="#999999" d="M294.264,420.981h-6.428c-2.937,0-5.619,1.086-7.684,2.864V407.99c0-13.585-11.053-24.636-24.642-24.636
+		h-8.564c-13.589,0-24.642,11.051-24.642,24.636v41.617h6.427V407.99c0-10.039,8.168-18.206,18.215-18.206h8.564
+		c10.043,0,18.213,8.167,18.213,18.206v41.617h6.429v-7.935c2.065,1.788,4.748,2.873,7.684,2.873h6.428
+		c6.493,0,11.781-5.284,11.781-11.784C306.045,426.27,300.757,420.981,294.264,420.981 M294.264,438.119h-6.428
+		c-2.951,0-5.356-2.402-5.356-5.357c0-2.95,2.405-5.357,5.356-5.357h6.428c2.953,0,5.355,2.407,5.355,5.357
+		C299.619,435.717,297.216,438.119,294.264,438.119"/>
+	<rect x="197.745" y="454.827" fill="#999999" width="6.426" height="3.817"/>
+	<polygon fill="#999999" points="182.304,471.673 197.745,471.673 204.171,471.673 204.171,468.245 182.304,468.245 	"/>
+	<polygon fill="#292425" points="133.358,467.385 141.975,467.385 150.596,467.385 150.596,465.071 133.358,465.071 	"/>
+	<polygon fill="#999999" points="133.358,467.385 141.975,467.385 150.596,467.385 150.596,465.071 133.358,465.071 	"/>
+	<rect x="138.764" y="454.827" fill="#EED397" width="6.426" height="3.817"/>
+	<rect x="138.764" y="454.827" fill="#999999" width="6.426" height="3.817"/>
+	<rect x="312.255" y="454.827" fill="#999999" width="6.427" height="3.817"/>
+	<path fill="#999999" d="M335.554,391.19c-12.846,0-23.298,10.452-23.298,23.301v35.116h6.427v-35.116
+		c0-9.302,7.568-16.875,16.871-16.875h8.041c9.298,0,16.871,7.573,16.871,16.875v8.55c-3.102,2.123-5.143,5.688-5.143,9.721
+		c0,4.034,2.041,7.603,5.143,9.728v7.118h6.426v-5.073c0.069,0,0.142,0.012,0.217,0.012h6.43c6.491,0,11.78-5.284,11.78-11.784
+		c0-6.492-5.289-11.78-11.78-11.78h-6.43c-0.075,0-0.147,0.007-0.217,0.007v-6.497c0-12.849-10.451-23.301-23.297-23.301H335.554z
+		 M367.108,427.404h6.43c2.948,0,5.354,2.407,5.354,5.357c0,2.955-2.405,5.357-5.354,5.357h-6.43c-2.952,0-5.36-2.402-5.36-5.357
+		C361.748,429.812,364.156,427.404,367.108,427.404"/>
+	<polygon fill="#999999" points="306.851,467.33 315.467,467.33 324.085,467.33 324.085,465.071 306.851,465.071 	"/>
+	<polygon fill="#999999" points="355.058,467.33 369.082,467.33 372.298,467.33 372.298,465.071 355.058,465.071 	"/>
+	<rect x="360.466" y="454.827" fill="#999999" width="6.429" height="3.817"/>
+	<path fill="#999999" d="M347.495,425.506H327.97c-1.198,0-2.171,0.968-2.171,2.164c0,1.2,0.973,2.17,2.171,2.17h19.525
+		c1.193,0,2.167-0.97,2.167-2.17C349.662,426.474,348.688,425.506,347.495,425.506"/>
+	<path fill="#999999" d="M260.727,418.454h-19.522c-1.196,0-2.168,0.969-2.168,2.166c0,1.198,0.973,2.17,2.168,2.17h19.522
+		c1.199,0,2.174-0.972,2.174-2.17C262.9,419.423,261.926,418.454,260.727,418.454"/>
+	<rect x="289.441" y="404.957" fill="#999999" width="13.873" height="4.287"/>
+	<path fill="#292425" d="M192.689,391.659c0-3.163-2.572-5.737-5.735-5.737c-3.168,0-5.738,2.574-5.738,5.737
+		c0,3.159,2.57,5.731,5.738,5.731C190.118,397.391,192.689,394.818,192.689,391.659"/>
+	<path fill="none" d="M192.689,391.659c0-3.163-2.572-5.737-5.735-5.737c-3.168,0-5.738,2.574-5.738,5.737
+		c0,3.159,2.57,5.731,5.738,5.731C190.118,397.391,192.689,394.818,192.689,391.659z"/>
+	<path fill="#292425" d="M154.801,397.391c3.161,0,5.734-2.572,5.734-5.731c0-3.163-2.573-5.737-5.734-5.737
+		c-3.164,0-5.735,2.574-5.735,5.737C149.066,394.818,151.638,397.391,154.801,397.391"/>
+	<path fill="none" d="M154.157,397.391c3.164,0,5.739-2.572,5.739-5.731c0-3.163-2.575-5.737-5.739-5.737
+		c-3.158,0-5.733,2.574-5.733,5.737C148.424,394.818,150.999,397.391,154.157,397.391z"/>
+	<path fill="#999999" d="M192.256,406.715c0-3.167-2.581-5.749-5.748-5.749h-32.467c-3.171,0-5.747,2.582-5.747,5.749
+		c0,3.169,2.576,5.749,5.747,5.749h32.467C189.675,412.464,192.256,409.884,192.256,406.715 M154.042,404.176h32.467
+		c1.399,0,2.538,1.143,2.538,2.539c0,1.403-1.139,2.534-2.538,2.534h-32.467c-1.398,0-2.537-1.131-2.537-2.534
+		C151.505,405.318,152.644,404.176,154.042,404.176"/>
+	<path fill="#999999" d="M319.176,377.423c0-3.167-2.581-5.749-5.752-5.749h-32.466c-3.169,0-5.748,2.582-5.748,5.749
+		c0,3.169,2.579,5.749,5.748,5.749h32.466C316.595,383.172,319.176,380.592,319.176,377.423 M280.958,374.885h32.466
+		c1.4,0,2.538,1.143,2.538,2.538c0,1.402-1.138,2.534-2.538,2.534h-32.466c-1.395,0-2.534-1.132-2.534-2.534
+		C278.424,376.028,279.563,374.885,280.958,374.885"/>
+	<path fill="#292425" d="M357.112,415.362c0-2.69-2.191-4.882-4.887-4.882c-2.689,0-4.88,2.191-4.88,4.882
+		c0,2.693,2.19,4.882,4.88,4.882C354.921,420.244,357.112,418.056,357.112,415.362"/>
+	<path fill="none" d="M357.112,415.362c0-2.69-2.191-4.882-4.887-4.882c-2.689,0-4.88,2.191-4.88,4.882
+		c0,2.693,2.19,4.882,4.88,4.882C354.921,420.244,357.112,418.056,357.112,415.362z"/>
+	<path fill="#292425" d="M330.95,415.362c0-2.69-2.192-4.882-4.881-4.882c-2.695,0-4.886,2.191-4.886,4.882
+		c0,2.693,2.19,4.882,4.886,4.882C328.758,420.244,330.95,418.056,330.95,415.362"/>
+	<path fill="none" d="M330.31,415.362c0-2.69-2.192-4.882-4.881-4.882c-2.696,0-4.886,2.191-4.886,4.882
+		c0,2.693,2.19,4.882,4.886,4.882C328.117,420.244,330.31,418.056,330.31,415.362z"/>
+	<path fill="#292425" d="M269.867,408.921c0-2.83-2.307-5.136-5.14-5.136c-2.832,0-5.138,2.306-5.138,5.136
+		c0,2.837,2.306,5.139,5.138,5.139C267.56,414.06,269.867,411.758,269.867,408.921"/>
+	<path fill="none" d="M269.867,408.921c0-2.83-2.307-5.136-5.14-5.136c-2.832,0-5.138,2.306-5.138,5.136
+		c0,2.837,2.306,5.139,5.138,5.139C267.56,414.06,269.867,411.758,269.867,408.921z"/>
+	<path fill="#292425" d="M237.42,403.785c-2.833,0-5.135,2.306-5.135,5.136c0,2.837,2.303,5.139,5.135,5.139
+		c2.835,0,5.138-2.302,5.138-5.139C242.558,406.091,240.255,403.785,237.42,403.785"/>
+	<path fill="none" d="M236.139,403.785c-2.835,0-5.14,2.306-5.14,5.136c0,2.837,2.305,5.139,5.14,5.139
+		c2.83,0,5.135-2.302,5.135-5.139C241.274,406.091,238.969,403.785,236.139,403.785z"/>
+	<path fill="#999999" d="M213.182,327.672l15.586,6.427c1.778,0,3.215-1.437,3.215-3.211s-1.437-3.215-3.215-3.215H213.182z"/>
+	<path fill="#999999" stroke="#B3B3B3" stroke-width="1.9052" d="M238.989,366.082h-41.765c-0.245,0-0.477,0.058-0.713,0.089
+		c0.721,0.624,1.455,1.302,2.204,2.049h40.275c1.968,0,3.568,1.607,3.568,3.573c0,1.968-1.601,3.568-3.568,3.568h-34.762
+		c0.394,0.688,0.758,1.407,1.101,2.143h33.661c3.147,0,5.712-2.564,5.712-5.711C244.701,368.646,242.136,366.082,238.989,366.082z"
+		/>
+	<path fill="#999999" d="M352.688,373.103c0,7.01-5.681,12.696-12.692,12.696c-7.009,0-12.693-5.686-12.693-12.696
+		c0-0.472,0.03-0.941,0.083-1.403v-12.049c0-12.852-10.464-23.312-23.323-23.312H293.46c-12.859,0-23.319,10.46-23.319,23.312v7.45
+		c0,0-0.309,7.749-7.308,7.749s-8.182-6.628-8.182-6.628v-17.171c0-15.657-12.745-28.4-28.403-28.4h-12.646
+		c-15.657,0-28.397,12.743-28.397,28.4v6.834l-6.428-2.319v-4.516c0-19.205,15.622-34.826,34.825-34.826h12.646
+		c19.205,0,34.827,15.621,34.827,34.826v16.051c0,0,0.348,1.317,1.757,1.317c0.343,0,0.648-0.137,0.882-0.354v-8.413
+		c0-16.397,13.345-29.738,29.745-29.738h10.602c16.41,0,29.75,13.34,29.75,29.738v2.373c1.831-1.025,3.938-1.613,6.184-1.613
+		C347.007,360.411,352.688,366.093,352.688,373.103z M345.041,373.195c0-2.768-2.252-5.023-5.021-5.023
+		c-2.768,0-5.021,2.256-5.021,5.023s2.254,5.019,5.021,5.019C342.789,378.214,345.041,375.963,345.041,373.195"/>
+	<g>
+		<path fill="none" d="M133.443,444.546c5.905,0,10.712-4.805,10.712-10.713s-4.807-10.713-10.712-10.713h-4.942v21.426H133.443z"/>
+		<path fill="none" d="M205.351,428.476h-6.43c-2.949,0-5.354,2.408-5.354,5.357c0,2.955,2.405,5.358,5.354,5.358h6.43
+			c2.952,0,5.356-2.403,5.356-5.358C210.707,430.884,208.302,428.476,205.351,428.476z"/>
+		<line fill="#EED397" x1="145.193" y1="421.391" x2="145.193" y2="420.832"/>
+		<path fill="#999999" d="M205.351,422.049h-1.18v-31.461c0-1.685-0.205-3.327-0.493-4.934l-0.143,0.014
+			c-1.074-9.541-9.11-16.219-12.93-18.886c-4.168-2.509-9.019-3.978-14.222-3.978h-9.829c-15.324,0-27.79,12.464-27.79,27.784
+			v26.844c-1.571-0.474-3.234-0.736-4.96-0.736h-10.807c-9.45,0-17.138,7.689-17.138,17.138c0,9.451,7.688,17.139,17.138,17.139
+			c0,0,1.311,0,5.225,0c0.059,0,0.12,0,0.179,0c0.057,0,0.116,0,0.179,0c3.91,0,5.224,0,5.224,0c9.447,0,17.135-7.688,17.135-17.139
+			c0-5.38-2.496-10.184-6.389-13.33l0.643,0.329v-30.244c0-11.777,9.582-21.359,21.361-21.359h9.829
+			c11.781,0,21.362,9.582,21.362,21.359v31.523c-5.947,0.592-10.607,5.622-10.607,11.722c0,6.103,4.661,11.13,10.607,11.724v4.051
+			h6.426v-3.99h1.18c6.494,0,11.781-5.283,11.781-11.784C217.131,427.338,211.844,422.049,205.351,422.049z M133.804,444.546
+			h-10.807c-5.903,0-10.711-4.805-10.711-10.713s4.808-10.713,10.711-10.713h10.807c5.904,0,10.71,4.805,10.71,10.713
+			S139.708,444.546,133.804,444.546z M205.351,439.191h-6.43c-2.949,0-5.354-2.403-5.354-5.358c0-2.949,2.405-5.357,5.354-5.357
+			h6.43c2.952,0,5.356,2.408,5.356,5.357C210.707,436.788,208.302,439.191,205.351,439.191z"/>
+	</g>
+	<g>
+		<path fill="#999999" d="M196.327,582.27c-1.502-8.695-10.383-48.951-46.605-54.61c-74.193-11.592-79.544-44.931-79.544-44.931
+			l-1.562,9.866c-10.583,58.445,35.371,78.301,75.126,85.602c15.194,2.575,32.344,4.073,51.701,4.073
+			C195.743,582.27,196.029,582.27,196.327,582.27z"/>
+		<path d="M448.354,516.135c-19.538,5.061-30.091,9.655-80.707,9.655c-32.905,0-53.271,22.669-59.653,45.141
+			c-11.699-18.002-12.341-44.021-12.341-49.107c0-0.532,0.011-0.838,0.011-0.868l0.261-9.42l-8.714,3.567
+			c-19.27,7.914-23.458,30.84-23.458,45.318c0,9.899,1.214,11.886,4.448,21.132C355.39,579.019,407.635,567.547,448.354,516.135z"/>
+		<path d="M190.363,510.208c0,0,9.254,26.456,16.006,47.463c4.253,13.222,7.514,24.285,6.855,25.237
+			c16.1-0.038,32.328-0.822,46.534-1.14C256.277,574.41,224.909,533.764,190.363,510.208z"/>
+		<path fill="#999999" d="M451.765,430.487c0,0,1.923,53.587-40.188,72.727C411.577,503.214,484.304,507.044,451.765,430.487z"/>
+		<path d="M57.563,466.563c0,0-31.152,15.134-25.692,41.144c2.067,9.86,9.384,21.28,25.666,34.036c0,0-0.361-0.604-0.938-1.688
+			C52.314,531.972,35.548,496.156,57.563,466.563z"/>
+	</g>
+</g>
+</svg>
+
+</div>
+
+			</div>
+		</dd>
+		<dt id="accordion_color_schemes_title">Colores</dt>
+		<dd class="clearfix" id="accordion_color_schemes">
+			<div class="wrapper"></div>
+		</dd>
+		<dt id="accordion_color_maps_title">Mapas</dt>
+		<dd class="clearfix" id="accordion_color_maps">
+			<div class="wrapper"></div>
+		</dd>
+		<dt id="accordion_data_sources_title">Fuentes de datos</dt>
+		<dd class="clearfix" id="accordion_data_sources">
+			<div class="wrapper"></div>
+		</dd>
+	</dl>
+</div>
+
+<div id="workarea">
+<div id="svgcanvas" style="position:relative">
+
+</div>
+</div>
+
+<!--<div class="menu_title" id="logo"><img src='/images/logo.png' /></div>-->
+
+<div id="menu_bar">
+  <a class="menu">
+    
+    <div class="menu_list">
+      <div id="tool_about" class="menu_item">About this Editor...</div>
+      <div class="separator"></div>
+      <div id="tool_about" class="menu_item">Keyboard Shortcus...</div>
+    </div>
+  </a>
+  
+  <div class="menu">
+  	<div class="menu_title">File</div>
+  	<div class="menu_list" id="file_menu"> 
+  		<div id="tool_clear" class="menu_item">New Document</div>
+  		<div id="tool_open" class="menu_item" style="display: none;"><div id="fileinputs"></div>Open SVG...</div>
+  		<div id="tool_import" class="menu_item" style="display: none;"><div id="fileinputs_import"></div>Import Image...</div>
+  		<div id="tool_save" class="menu_item">Save Image... <span class="shortcut">⌘S</span></div>
+  		<div id="tool_export" class="menu_item">Export as PNG</div>
+  	</div>
+  </div>
+
+  <div class="menu">
+    <div class="menu_title">Edit</div>
+  	<div class="menu_list" id="edit_menu">
+  		<div class="menu_item" id="tool_undo">Undo <span class="shortcut">⌘Z</span></div>
+  		<div class="menu_item" id="tool_redo">Redo <span class="shortcut">⌘Y</span></div>
+  		<div class="separator"></div>
+  		<div class="menu_item action_selected disabled" id="tool_cut">Cut <span class="shortcut">⌘X</span></div>
+  		<div class="menu_item action_selected disabled" id="tool_copy">Copy <span class="shortcut">⌘C</span></div>
+			<div class="menu_item action_selected disabled" id="tool_paste">Paste <span class="shortcut">⌘V</span></div>
+  		<div class="menu_item action_selected disabled" id="tool_clone">Duplicate <span class="shortcut">⌘D</span></div>
+			<div class="menu_item action_selected disabled" id="tool_delete">Delete <span>⌫</span></div>
+    </div>
+  </div>
+  
+  <div class="menu">
+    <div class="menu_title">Object</div>
+  	<div class="menu_list"  id="object_menu">
+			<div class="menu_item action_selected disabled" id="tool_move_top">Bring to Front <span class="shortcut">⌘⇧↑</span></div>
+			<div class="menu_item action_selected disabled" id="tool_move_up">Bring Forward <span class="shortcut">⌘↑</span></div>
+			<div class="menu_item action_selected disabled" id="tool_move_down">Send Backward <span class="shortcut">⌘↓</span></div>
+			<div class="menu_item action_selected disabled" id="tool_move_bottom">Send to Back <span class="shortcut">⌘⇧↓</span></div>
+			<div class="separator"></div>
+			<div class="menu_item action_multi_selected disabled" id="tool_group">Group Elements <span class="shortcut">⌘G</span></div>
+			<div class="menu_item action_group_selected disabled" id="tool_ungroup">Ungroup Elements <span class="shortcut">⌘⇧G</span></div>
+			<div class="separator"></div>
+			<div class="menu_item action_path_convert_selected disabled" id="tool_topath">Convert to Path</div>
+			<div class="menu_item action_path_selected disabled" id="tool_reorient">Reorient path</div>
+    </div>
+  </div>
+
+  <div class="menu">
+    <div class="menu_title">View</div>
+  	<div class="menu_list" id="view_menu">
+  	    <div class="menu_item push_button_pressed" id="tool_rulers">View Rulers</div>
+  	    <div class="menu_item" id="tool_wireframe">View Wireframe</div>
+  	    <div class="menu_item" id="tool_snap">Snap to Grid</div>
+  	    <div class="separator"></div>
+    		<div class="menu_item" id="tool_source">Source... <span class="shortcut">⌘U</span></div>
+    </div>
+  </div>
+  
+
+  
+</div>
+
+<div id="tools_top" class="tools_panel">
+
+	<div id="canvas_panel" class="context_panel">
+	  
+	  <h4 class="clearfix">Canvas</h4>
+	  
+		<label data-title="Change canvas width">
+			<input size="3" id="canvas_width" type="text" pattern="[0-9]*" />
+			<span class="icon_label">Width</span>
+		</label>
+		<label data-title="Change canvas height">
+			<input id="canvas_height" size="3" type="text" pattern="[0-9]*" />
+			<span class="icon_label">Height</span>
+		</label>
+		  	
+  	
+  	<label data-title="Change canvas color" class="draginput">
+    	<span>Color</span>
+  		<div id="color_canvas_tools">
+  		  <div class="color_tool active" id="tool_canvas">
+    		  <div class="color_block">
+    			  <div id="canvas_bg"></div>
+    			  <div id="canvas_color"></div>
+    		  </div>
+    		</div>
+    	</div>
+  	</label>
+
+	  <div class="draginput">
+	    <span>Sizes</span>
+  		<select id="resolution">
+  			<option id="selectedPredefined" selected="selected">Custom</option>
+  			<option>640x480</option>
+  			<option>800x600</option>
+  			<option>1024x768</option>
+  			<option>1280x960</option>
+  			<option>1600x1200</option>
+  			<option id="fitToContent" value="content">Fit to Content</option>
+  		</select>
+  		<div class="caret"></div>
+  		<label id="resolution_label">Custom</label>
+		</div>
+
+	</div>
+	
+	<div id="rect_panel" class="context_panel">
+	  <h4 class="clearfix">Rectangle</h4>
+	  <label>
+			<input id="rect_x" class="attr_changer" data-title="Change X coordinate" size="3" data-attr="x" pattern="[0-9]*" />
+			<span>X</span> 
+		</label>
+		<label>
+		  <input id="rect_y" class="attr_changer" data-title="Change Y coordinate" size="3" data-attr="y" pattern="[0-9]*" />
+			<span>Y</span> 
+		</label>
+		<label id="rect_width_tool attr_changer" data-title="Change rectangle width">
+			<input id="rect_width" class="attr_changer" size="3" data-attr="width" type="text" pattern="[0-9]*" />
+			<span class="icon_label">Width</span>
+		</label>
+		<label id="rect_height_tool" data-title="Change rectangle height">
+			<input id="rect_height" class="attr_changer" size="3" data-attr="height" type="text" pattern="[0-9]*" />
+			<span class="icon_label">Height</span>
+		</label>
+	</div>
+	
+	<div id="path_panel" class="context_panel clearfix">
+	  <h4 class="clearfix">Path</h4>
+	  <label>
+		  <input id="path_x" class="attr_changer" data-title="Change ellipse's cx coordinate" size="3" data-attr="x" pattern="[0-9]*" />
+		  <span>X</span>
+		</label>
+		<label>
+		  <input id="path_y" class="attr_changer" data-title="Change ellipse's cy coordinate" size="3" data-attr="y" pattern="[0-9]*" />
+		  <span>Y</span>
+		</label>
+	</div>
+
+	<div id="image_panel" class="context_panel clearfix">
+	<h4>Image</h4>
+		<label>
+			<input id="image_x" class="attr_changer" data-title="Change X coordinate" size="3" data-attr="x"  pattern="[0-9]*"/>
+		  <span>X</span> 
+		</label>
+		<label>
+		  <input id="image_y" class="attr_changer" data-title="Change Y coordinate" size="3" data-attr="y"  pattern="[0-9]*"/>
+		  <span>Y</span> 
+		</label>
+		<label>
+		  <input id="image_width" class="attr_changer" data-title="Change image width" size="3" data-attr="width" pattern="[0-9]*" />
+		  <span class="icon_label">Width</span>
+		</label>
+		<label>
+		  <input id="image_height" class="attr_changer" data-title="Change image height" size="3" data-attr="height" pattern="[0-9]*" />
+		  <span class="icon_label">Height</span>
+		</label>
+  </div>
+  
+  <div id="circle_panel" class="context_panel">
+    <h4>Circle</h4>
+		<label id="tool_circle_cx">
+		  <span>Center X</span>
+		  <input id="circle_cx" class="attr_changer" title="Change circle's cx coordinate" size="3" data-attr="cx"/>
+		</label>
+		<label id="tool_circle_cy">
+		  <span>Center Y</span>
+		  <input id="circle_cy" class="attr_changer" title="Change circle's cy coordinate" size="3" data-attr="cy"/>
+		</label>
+		<label id="tool_circle_r">
+		  <span>Radius</span>
+		  <input id="circle_r" class="attr_changer" title="Change circle's radius" size="3" data-attr="r"/>
+		</label>
+	</div>
+
+	<div id="ellipse_panel" class="context_panel clearfix">
+	  <h4>Ellipse</h4>
+		<label id="tool_ellipse_cx">
+		  <input id="ellipse_cx" class="attr_changer" data-title="Change ellipse's cx coordinate" size="3" data-attr="cx" pattern="[0-9]*" />
+		  <span>X</span>
+		</label>
+		<label id="tool_ellipse_cy">
+		  <input id="ellipse_cy" class="attr_changer" data-title="Change ellipse's cy coordinate" size="3" data-attr="cy" pattern="[0-9]*" />
+		  <span>Y</span>
+		</label>
+		<label id="tool_ellipse_rx">
+		  <input id="ellipse_rx" class="attr_changer" data-title="Change ellipse's x radius" size="3" data-attr="rx" pattern="[0-9]*" />
+	    <span>Radius X</span>
+		</label>
+		<label id="tool_ellipse_ry">
+		  <input id="ellipse_ry" class="attr_changer" data-title="Change ellipse's y radius" size="3" data-attr="ry" pattern="[0-9]*" />
+		  <span>Radius Y</span>
+		</label>
+	</div>
+
+	<div id="line_panel" class="context_panel clearfix">
+	  <h4>Line</h4>
+		<label id="tool_line_x1">
+		  <input id="line_x1" class="attr_changer" data-title="Change line's starting x coordinate" size="3" data-attr="x1" pattern="[0-9]*" />
+		  <span>Start X</span>
+		</label>
+		<label id="tool_line_y1">
+		  <input id="line_y1" class="attr_changer" data-title="Change line's starting y coordinate" size="3" data-attr="y1" pattern="[0-9]*" />
+		  <span>Start Y</span>
+		</label>
+		<label id="tool_line_x2">
+		  <input id="line_x2" class="attr_changer" data-title="Change line's ending x coordinate" size="3" data-attr="x2"   pattern="[0-9]*" />
+		  <span>End X</span>
+		</label>
+		<label id="tool_line_y2">
+		  <input id="line_y2" class="attr_changer" data-title="Change line's ending y coordinate" size="3" data-attr="y2"   pattern="[0-9]*" />
+		  <span>End Y</span>
+		</label>
+	</div>
+
+	<div id="text_panel" class="context_panel">
+	  <h4>Text</h4>
+		<label>
+		  <input id="text_x" class="attr_changer" data-title="Change text x coordinate" size="3" data-attr="x" pattern="[0-9]*" />
+		  <span>X</span>
+		</label>
+		<label>
+		  <input id="text_y" class="attr_changer" data-title="Change text y coordinate" size="3" data-attr="y" pattern="[0-9]*" />
+		  <span>Y</span>
+		</label>
+		
+		<div class="toolset draginput select twocol" id="tool_font_family">
+				<!-- Font family -->
+			<span>Font</span>
+		  <div id="preview_font" style="font-family: Helvetica, Arial, sans-serif;">Helvetica</div>
+		  <div class="caret"></div>
+			<input id="font_family" data-title="Change Font Family" size="12" type="hidden" />
+			<select id="font_family_dropdown">
+				  <option value="Helvetica, Arial, sans-serif" selected="selected">Helvetica</option>
+					<!--<option value="Arvo, sans-serif">Arvo</option>
+					<option value="Euphoria, sans-serif">Euphoria</option>
+					<option value="Oswald, sans-serif">Oswald</option>
+					<option value="'Shadows Into Light', serif">Shadows Into Light</option>
+					<option value="'Simonetta', serif">Simonetta</option>-->
+					<option value="'Trebuchet MS', Gadget, sans-serif">Trebuchet</option>
+					<option value="Georgia, Times, 'Times New Roman', serif">Georgia</option>
+					<option value="'Palatino Linotype', 'Book Antiqua', Palatino, serif">Palatino</option>
+					<option value="'Times New Roman', Times, serif">Times</option>
+					<option value="'Courier New', Courier, monospace">Courier</option>
+			</select>
+      <div class="tool_button" id="tool_bold" data-title="Bold Text [B]">B</div>
+      <div class="tool_button" id="tool_italic" data-title="Italic Text [I]">i</div>
+		</div>
+
+		<label id="tool_font_size" data-title="Change Font Size">
+			<input id="font_size" size="3" value="0" />
+			<span id="font_sizeLabel" class="icon_label">Font Size</span>
+		</label>
+		<!-- Not visible, but still used -->
+		<input id="text" type="text" size="35"/>
+	</div>
+
+	<!-- formerly gsvg_panel -->
+	<div id="container_panel" class="context_panel clearfix">
+	</div>
+	
+	<div id="use_panel" class="context_panel clearfix">
+		<div class="tool_button clearfix" id="tool_unlink_use" data-title="Break link to reference element (make unique)">Break link reference</div>
+	</div>
+	
+	<div id="g_panel" class="context_panel clearfix">
+		<h4>Group</h4>
+		<label>
+		  <input id="g_x" class="attr_changer" data-title="Change groups's x coordinate" size="3" data-attr="x" pattern="[0-9]*" />
+		  <span>X</span>
+		</label>
+		<label>
+		  <input id="g_y" class="attr_changer" data-title="Change groups's y coordinate" size="3" data-attr="y" pattern="[0-9]*" />
+		  <span>Y</span>
+		</label>
+	</div>
+	
+	<div id="path_node_panel" class="context_panel clearfix">
+	  <h4>Edit Path</h4>
+
+		<label id="tool_node_x">
+			<input id="path_node_x" class="attr_changer" data-title="Change node's x coordinate" size="3" data-attr="x" />
+		  <span>X</span>
+		</label>
+		<label id="tool_node_y">
+			<input id="path_node_y" class="attr_changer" data-title="Change node's y coordinate" size="3" data-attr="y" />
+		  <span>Y</span>
+		</label>
+		
+		<div id="segment_type" class="draginput label">
+		  <span>Segment Type</span>
+  		<select id="seg_type" data-title="Change Segment type">
+  			<option id="straight_segments" selected="selected" value="4">Straight</option>
+  			<option id="curve_segments" value="6">Curve</option>
+  		</select>
+  		<div class="caret"></div>
+  		<label id="seg_type_label">Straight</label>
+		</div>
+		
+		<!--
+		<label class="draginput checkbox" data-title="Link Control Points">
+		  <span>Linked Control Points</span>
+		  <div class="push_bottom"><input type="checkbox" id="tool_node_link" checked="checked" /></div>
+		</label>
+	-->
+		
+		<div class="clearfix"></div>
+		<div class="tool_button" id="tool_node_clone" title="Adds a node">Add Node</div>
+		<div class="tool_button" id="tool_node_delete" title="Delete Node">Delete Node</div>
+		<div class="tool_button" id="tool_openclose_path" title="Open/close sub-path">Open Path</div>
+		<!--<div class="tool_button" id="tool_add_subpath" title="Add sub-path"></div>-->
+	</div>
+	
+	<!-- Buttons when a single element is selected -->
+	<div id="selected_panel" class="context_panel">
+
+		<label id="tool_angle" data-title="Change rotation angle" class="draginput">
+			<input id="angle" class="attr_changer" size="2" value="0" data-attr="transform" data-min="-180" data-max="180" type="text"/>
+			<span class="icon_label">Rotation</span>
+			<div id="tool_angle_indicator">
+			  <div id="tool_angle_indicator_cursor"></div>
+			</div>
+		</label>
+		
+			<label class="toolset" id="tool_opacity" data-title="Change selected item opacity">
+  			<input id="group_opacity" class="attr_changer" data-attr="opacity" data-multiplier="0.01" size="3" value="100" step="5" min="0" max="100" />
+  		  <span id="group_opacityLabel" class="icon_label">Opacity</span>
+  		</label>
+		
+		<div class="toolset" id="tool_blur" data-title="Change gaussian blur value">
+			<label>
+				<input id="blur" size="2" value="0" step=".1"  min="0" max="10" />
+			  <span class="icon_label">Blur</span>
+			</label>
+		</div>
+		
+		<label id="cornerRadiusLabel" data-title="Change Rectangle Corner Radius">
+			<input id="rect_rx" size="3" value="0" data-attr="rx" class="attr_changer" type="text" pattern="[0-9]*" />
+		  <span class="icon_label">Roundness</span>
+		</label>
+		
+		<div class="clearfix"></div>
+		<div id="align_tools">
+  		<h4>Align</h4>
+  		<div class="toolset align_buttons" id="tool_position">
+  				<label>
+  				  <div class="col last clear" id="position_opts">
+    				  <div class="draginput_cell" id="tool_posleft" title="Align Left"></div>
+          		<div class="draginput_cell" id="tool_poscenter" title="Align Center"></div>
+          		<div class="draginput_cell" id="tool_posright" title="Align Right"></div>
+          		<div class="draginput_cell" id="tool_postop" title="Align Top"></div>
+          		<div class="draginput_cell" id="tool_posmiddle" title="Align Middle"></div>
+          		<div class="draginput_cell" id="tool_posbottom" title="Align Bottom"></div>
+    				</div>
+  				</label>
+  		</div>		
+  	</div>
+	</div>
+	
+	<!-- Buttons when multiple elements are selected -->
+	<div id="multiselected_panel" class="context_panel clearfix">
+	  <h4 class="hidable">Multiple Elements</h4>
+	  
+		<div class="toolset align_buttons" style="position: relative">
+		  <label id="tool_align_relative" style="margin-top: 10px;"> 
+  			<select id="align_relative_to" title="Align relative to ...">
+  			<option id="selected_objects" value="selected">Align to objects</option>
+  			<option id="page" value="page">Align to page</option>
+  			</select>
+  		</label>
+		  <h4>.</h4>
+    		<div class="col last clear">
+      		<div class="draginput_cell" id="tool_alignleft" title="Align Left"></div>
+      		<div class="draginput_cell" id="tool_aligncenter" title="Align Center"></div>
+      		<div class="draginput_cell" id="tool_alignright" title="Align Right"></div>
+      		<div class="draginput_cell" id="tool_aligntop" title="Align Top"></div>
+      		<div class="draginput_cell" id="tool_alignmiddle" title="Align Middle"></div>
+      		<div class="draginput_cell" id="tool_alignbottom" title="Align Bottom"></div>
+    		</div>
+		</div>
+		<div class="clearfix"></div>
+
+	</div>
+	
+	<div id="stroke_panel" class="context_panel clearfix">
+  	<div class="clearfix"></div>
+  	<h4>Stroke</h4>
+  	<div class="toolset" data-title="Change stroke">
+  		<label>
+  			<input id="stroke_width" size="2" value="5" data-attr="stroke-width" min="0" max="99" step="1" />
+  		  <span class="icon_label">Stroke Width</span>
+  		</label>
+  	</div>
+  	<div class="stroke_tool draginput"> 
+  	  <span>Stroke Dash</span>
+  		<select id="stroke_style" data-title="Change stroke dash style">
+  			<option selected="selected" value="none">—</option>
+  			<option value="2,2">···</option>
+  			<option value="5,5">- -</option>
+  			<option value="5,2,2,2">-·-</option>
+  			<option value="5,2,2,2,2,2">-··-</option>
+  		</select>
+  		<div class="caret"></div>
+  		<label id="stroke_style_label">—</label>
+  	</div>
+		
+    <label style="display: none;">
+      <span class="icon_label">Stroke Join</span>
+    </label>
+    
+    <label  style="display: none;">
+      <span class="icon_label">Stroke Cap</span>
+  	</label>
+	</div>
+
+</div> <!-- tools_top -->
+	<div id="cur_context_panel">
+		
+	</div>
+
+
+<div id="tools_left" class="tools_panel">
+	<div class="tool_button" id="tool_select" title="Select Tool [V]"></div>
+	<div class="tool_button" id="tool_fhpath" title="Pencil Tool [P]"></div>
+	<div class="tool_button" id="tool_line" title="Line Tool [L]"></div>
+	<div class="tool_button" id="tool_rect" title="Square/Rect Tool [R]"></div>
+	<div class="tool_button" id="tool_ellipse" title="Ellipse/Circle Tool [C]"></div>
+	<div class="tool_button" id="tool_path" title="Path Tool [P]"></div>
+	<div class="tool_button" id="tool_text" title="Text Tool [T]"></div>
+	<div class="tool_button" id="tool_zoom" title="Zoom Tool [Z]"></div>
+	
+  <div id="color_tools">
+        <div id="tool_switch" title="Switch stroke and fill colors [X]"></div>
+  			<div class="color_tool active" id="tool_fill">
+  				<label class="icon_label" title="Change fill color"></label>
+				  <div class="color_block">
+					  <div id="fill_bg"></div>
+					  <div id="fill_color" class="color_block"></div>
+				  </div>
+  			</div>
+
+  			<div class="color_tool" id="tool_stroke">
+  					<label class="icon_label" title="Change stroke color"></label>
+  				<div class="color_block">
+  					<div id="stroke_bg"></div>
+  					<div id="stroke_color" class="color_block" title="Change stroke color"></div>
+  				</div>
+  			</div>
+	</div>
+</div> <!-- tools_left -->
+
+<div id="tools_bottom" class="tools_panel">
+
+    <!-- Zoom buttons -->
+	<div id="zoom_panel" class="toolset" title="Change zoom level">
+		<div class="draginput select" id="zoom_label">
+  		<span  id="zoomLabel" class="zoom_tool icon_label"></span>
+  		<select id="zoom_select">
+  		  <option value="6">6%</option>
+  		  <option value="12">12%</option>
+  		  <option value="16">16%</option>
+  		  <option value="25">25%</option>
+  		  <option value="50">50%</option>
+  		  <option value="75">75%</option>
+  		  <option value="100"  selected="selected">100%</option>
+  		  <option value="150">150%</option>
+  		  <option value="200">200%</option>
+  		  <option value="300">300%</option>
+  		  <option value="400">400%</option>
+  		  <option value="600">600%</option>
+  		  <option value="800">800%</option>
+  		  <option value="1600">1600%</option>
+  		</select>
+  		<div class="caret"></div>
+  		<input id="zoom" size="3" value="100%" type="text" readonly="readonly" />
+		</div>
+	</div>
+
+	<div id="tools_bottom_3">
+		<div id="palette" title="Click to change fill color, shift-click to change stroke color"></div>
+	</div>
+</div>
+
+<!-- hidden divs -->
+<div id="color_picker"></div>
+
+</div> <!-- svg_editor -->
+
+<div id="svg_source_editor">
+	<div id="svg_source_overlay"></div>
+	<div id="svg_source_container">
+		<div id="save_output_btns">
+			<p id="copy_save_note">Copy the contents of this box into a text editor, then save the file with a .svg extension.</p>
+			<button id="copy_save_done">Done</button>
+		</div>
+		<form>
+			<textarea id="svg_source_textarea" spellcheck="false"></textarea>
+		</form>
+		<div id="tool_source_back" class="toolbar_button">
+			<button id="tool_source_cancel" class="cancel">Cancel</button>
+			<button id="tool_source_save" class="ok">Apply Changes</button>
+		</div>
+	</div>
+</div>
+
+<div id="base_unit_container">
+  <select id="base_unit">
+  	<option value="px">Pixels</option>
+  	<option value="cm">Centimeters</option>
+  	<option value="mm">Millimeters</option>
+  	<option value="in">Inches</option>
+  	<option value="pt">Points</option>
+  	<option value="pc">Picas</option>
+  	<option value="em">Ems</option>
+  	<option value="ex">Exs</option>
+  </select>
+</div>
+
+<div id="dialog_box">
+	<div id="dialog_box_overlay"></div>
+	<div id="dialog_container">
+		<div id="dialog_content"></div>
+		<div id="dialog_buttons"></div>
+	</div>
+</div>
+
+<ul id="cmenu_canvas" class="contextMenu">
+	<li><a href="#cut">Cut <span class="shortcut">⌘X;</span></a></li>
+	<li><a href="#copy">Copy<span class="shortcut">⌘C</span></a></li>
+	<li><a href="#paste">Paste<span class="shortcut">⌘V</span></a></li>
+	<li class="separator"><a href="#delete">Delete<span class="shortcut">⌫</span></a></li>
+	<li class="separator"><a href="#group">Group<span class="shortcut">⌘G</span></a></li>
+	<li><a href="#ungroup">Ungroup<span class="shortcut">⌘⇧G</span></a></li>
+  <li class="separator"><a href="#move_front">Bring to Front<span class="shortcut">⌘⇧↑</span></a></li>
+	<li><a href="#move_up">Bring Forward<span class="shortcut">⌘↑</span></a></li>
+	<li><a href="#move_down">Send Backward<span class="shortcut">⌘↓</span></a></li>
+  <li><a href="#move_back">Send to Back<span class="shortcut">⌘⇧↓</span></a></li>
+</ul>
+
+</body>
+</html>
