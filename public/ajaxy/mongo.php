@@ -53,6 +53,34 @@ switch( $_REQUEST['action'] )
 		dieJSON($data);
 		break;
 
+	case 'login':
+		$col = $db->users;
+		if( !isset($_REQUEST['access_user'])) dieJSON('Must specify user');
+		if( !isset($_REQUEST['access_password'])) dieJSON('Must include password');
+		$usr = stripslashes($_REQUEST['access_user']);
+		$pwd = stripslashes($_REQUEST['access_password']);
+		$usrdata = $col->findOne( array('user'=>$usr, 'pass'=>$pwd));
+		if(!$usrdata) dieJSON(array('status'=>'error','msg'=>'User not found'));
+		$usrkey = rand_string(10);
+		$usrdata['key'] = $usrkey ;
+		$col->update(array('user'=>$usr,'pass'=>$pwd),$usrdata);
+		dieJSON(array('status'=>'success','user'=>$usrdata));
+		break;
+
+	case 'register':
+		$col = $db->users;
+		if( !isset($_REQUEST['access_user'])) dieJSON('Must specify user');
+		if( !isset($_REQUEST['access_password'])) dieJSON('Must include password');
+		if( !isset($_REQUEST['access_email'])) dieJSON('Must include email address');
+		$usr = stripslashes($_REQUEST['access_user']);
+		$pwd = stripslashes($_REQUEST['access_password']);
+		$email = stripslashes($_REQUEST['access_email']);
+		$key = rand_string(10);
+		$usrdata = array('user'=>$usr,'pass'=>$pwd,'key'=>$key,'email'=>$email);
+		$col->insert($usrdata);
+		dieJSON(array('status'=>'success','user'=>$usrdata);
+		break;
+
 
 }
 dieJSON('Action not recognized');
@@ -65,4 +93,16 @@ function dieJSON( $msg )
 {
 	print json_encode( $msg );
 	exit;
+}
+
+
+function rand_string( $length ) {
+	$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";	
+
+	$size = strlen( $chars );
+	for( $i = 0; $i < $length; $i++ ) {
+		$str .= $chars[ rand( 0, $size - 1 ) ];
+	}
+
+	return $str;
 }

@@ -11,13 +11,15 @@ $(document).ready(function(){
 		return false;
 	});
 
+
 });
 
 function show_register()
 {
-	if( ('#access_form').css('display')=='block' &&
+	if( $('#access_box').css('display')=='block' &&
 		'register' == $('#access_mode').val() )
 	{
+		console.log("Register already showing");
 		return;
 	}
 
@@ -26,15 +28,15 @@ function show_register()
 	$('#access_box > h4').html('Create a User');
 	$('#access_submit').val('Register Account');
 
-	if( ('#access_form').css('display')=='none' )
+	if( $('#access_box').css('display')=='none' )
 	{
-		$('#access_form').slideDown();
+		show_access();
 	}
 }
 
 function show_login()
 {
-	if( ('#access_form').css('display')=='block' &&
+	if( $('#access_box').css('display')=='block' &&
 		'login' == $('#access_mode').val() )
 	{
 		return;
@@ -45,13 +47,28 @@ function show_login()
 	$('#access_box > h4').html('Enter Login Details');
 	$('#access_submit').val('Login');
 
-	if( ('#access_form').css('display')=='none' )
+	if( $('#access_box').css('display')=='none' )
 	{
-		$('#access_form').slideDown();
+		show_access();
 	}
+}
+
+function show_access()
+{
+	console.log("Show access");
+	$('#access_box').css('height','0px');
+	$('#access_box').css('display','block');
+	$('#access_box').animate({
+		'height' : '230px'
+	},1000);
 }
 
 function hide_access()
 {
-	$('#access_form').slideUp();
+	//$('#access_box').slideUp();
+	$('#access_box').animate({
+		'height' : '0px'
+	},1000,function(){
+		$('#access_box').css('display','none');
+	});
 }
