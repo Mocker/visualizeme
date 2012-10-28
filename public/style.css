@@ -183,6 +183,9 @@ div.longboxy {
 	height: 290px;
 	background-color: #999999;
 	margin-right: 10px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	text-align: center
 }
 
 div.plantillas {
