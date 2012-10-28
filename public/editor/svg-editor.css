@@ -2225,6 +2225,7 @@ input[readonly=readonly]:focus {
   cursor: -webkit-grab;
 }
 
+<<<<<<< HEAD
 .module.color {
   width: 50px;
   height: 50px;
@@ -2232,4 +2233,99 @@ input[readonly=readonly]:focus {
 
 .module.color:nth-of-type(2n+2) {
   margin-right: 5px;
+=======
+
+div.title a {
+  color: #333333;
+  text-decoration: none;
+  font-family: helvetica;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  font-weight: bold;
+}
+#access {
+  position: relative;
+  width: 160px;
+  height: 32px;
+  color: #333333;
+  float: right;
+  right: 50px;
+  top: 20px;
+}
+
+#access_logged {
+  display: none;
+  position: relative;
+  width: 160px;
+  height: 32px;
+  color: #333333;
+  float: right;
+  right: 50px;
+  top: 20px;
+}
+
+#load_work {
+  position: fixed;
+  z-index: 100;
+  width: 120px;
+  max-height: 400px;
+  display: none;
+  margin: auto;
+  background-color: #333;
+  padding: 5px;
+  border-radius: 5px;
+}
+#load_work ul {
+  width: 100%;
+  list-style-type: none;
+}
+#load_work li {
+  margin-bottom: 5px;
+  background-color: #ccc;
+  width: 100%;
+  text-align: center;
+  color: black;
+}
+#load_work li a {
+  text-decoration: none;
+  color: black;
+}
+#load_work li :hover {
+  background-color: #fff;
+}
+
+#access_box {
+  display: none;
+  position: absolute;
+  width: 160px;
+  color: white;
+  background: #333333;
+  padding: 10px;
+  float: right;
+  right: 40px; 
+  top: 50px;
+  height: 230px;
+  z-index: 100;
+}
+#user_save {
+  display: none;
+  position: absolute;
+  width: 80px;
+  
+  padding: 10px;
+  float: right;
+  right: 40px; 
+  top: 80px;
+  height: 50px;
+  z-index: 100;
+}
+#access_box h4 {
+  margin: 0;
+  color: white;
+}
+#access a {
+  color: #333333;
+  font-weight: bold;
+  text-decoration: none;
+>>>>>>> a1422dd4232e940a8219c81f8000f366a1cf2e6f
 }
