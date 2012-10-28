@@ -56,7 +56,7 @@ div.entrar {
 	text-align: center;
 	position: relative;
 	float: right;
-	top: -22px;
+	top: -3px;
 }
 div.entrar a {
 	color: black;
@@ -129,6 +129,19 @@ div.speechbubble {
 	width: 260px;
 	padding: 5px;
 	border-radius: 4px;
+}
+
+div.speechbubble:after {
+	content:"";
+	position:absolute;
+	bottom:-20px; /* value = - border-top-width - border-bottom-width */
+	left:50px; /* controls horizontal position */
+	border-width:20px 0 0 20px; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#333333 transparent; 
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
 }
 
 #contentmid_wrapper {
