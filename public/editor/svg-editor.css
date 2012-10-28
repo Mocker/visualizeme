@@ -2244,6 +2244,16 @@ div.title a {
   top: 20px;
 }
 
+#access_logged {
+  position: relative;
+  width: 160px;
+  height: 32px;
+  color: #333333;
+  float: right;
+  right: 50px;
+  top: 20px;
+}
+
 #access_box {
   display: none;
   position: absolute;

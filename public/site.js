@@ -12,17 +12,14 @@ $(document).ready(function(){
 	});
 
 	var usercookie = getCookie('userdat');
-	if(usercookie)
+	if(usercookie && usercookie.user )
 	{
 		console.log("User! "); console.log(usercookie);
 		userdat = JSON.parse(usercookie);
 		console.log(userdat);
 		user = userdat;
-		$('#access').html("Logged in as "+user.user);
-		if($('#user_save').length>0)
-		{
-			$('#user_save').css('display','block');
-		}
+		on_login();
+		
 	}
 	else {
 		console.log("No usercookie");
@@ -35,6 +32,30 @@ var status = {
 	is_registering: false,
 	is_logging: false
 };
+
+function on_login(){
+	var html = "Logged in as "+user.user+" ";
+	html += "<span style='margin-left: 10px; font-size:0.8em;'><a href='javascript:sign_out();'>sign out</a></span>";
+	$('#access_logged').html(html);
+	$('#access').css('display','none');
+	$('#access_logged').css('display','block');
+	if($('#user_save').length>0)
+		{
+			$('#user_save').css('display','block');
+		}
+}
+
+function sign_out(){
+	console.log("Sign out");
+	setCookie('userdat','',0);
+	user = undefined;
+	$('#access_logged').css('display','none');
+	$('#access').css('display','block');
+	if($('#user_save').length>0)
+		{
+			$('#user_save').css('display','none');
+		}
+}
 
 function show_register()
 {
@@ -77,7 +98,7 @@ function show_register()
 		      status.is_registering = false;
 		      alert("Account registered");
 		      hide_access();
-		      $('#access').html('Logged in as '+user.user);
+		      on_login();
 		    },
 		    error: function(jq,err,msg){
 		      alert("Cannot register "+err+" "+msg);
@@ -130,7 +151,7 @@ function show_login()
 		      console.log(obj);
 		      status.is_logging = false;
 		      hide_access();
-		      $('#access').html("Logged in as "+user.user);
+		      on_login();
 		    },
 		    error: function(jq,err,msg){
 		      alert("Cannot Login "+err+" "+msg);
