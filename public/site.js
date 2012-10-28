@@ -279,7 +279,7 @@ function load_work_list()
 	console.log("Load Work!");
 	var postdat = { 'action' : 'list_works',
 			'access_user' : user.user,
-			'acces_key' : user.key };
+			'access_key' : user.key };
 	console.log(postdat);
 	$.ajax({
 		url : '/ajaxy/mongo.php',
