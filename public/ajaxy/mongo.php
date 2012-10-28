@@ -78,7 +78,7 @@ switch( $_REQUEST['action'] )
 		$key = rand_string(10);
 		$usrdata = array('user'=>$usr,'pass'=>$pwd,'key'=>$key,'email'=>$email);
 		$col->insert($usrdata);
-		dieJSON(array('status'=>'success','user'=>$usrdata);
+		dieJSON(array('status'=>'success','user'=>$usrdata));
 		break;
 
 
